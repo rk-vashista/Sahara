@@ -1,38 +1,82 @@
-# create-svelte
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+# Svelte E-Commerce Application
 
-## Creating a project
+A simple e-commerce application built with Svelte. This project includes features like product listing, cart management, and checkout. The application uses Svelte stores to manage the cart state and ensures that changes are reflected across different components.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Features
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+- **Product Listing**: View a list of products with descriptions and prices.
+- **Product Details**: View detailed information about each product.
+- **Cart Management**: Add products to the cart, view cart contents, and proceed to checkout.
+- **Responsive Design**: Optimized for both desktop and mobile views.
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+## Setup and Installation
 
-## Developing
+### Prerequisites
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Make sure you have [Node.js](https://nodejs.org/) installed on your machine.
 
-```bash
-npm run dev
+### Getting Started
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+1. **Clone the Repository**
 
-## Building
+   ```bash
+   git clone https://github.com/rk-vashista/Sahara.git
+   cd Sahara
+   ```
 
-To create a production version of your app:
+2. **Install Dependencies**
 
-```bash
-npm run build
-```
+   ```bash
+   npm install
+   ```
 
-You can preview the production build with `npm run preview`.
+3. **Run the Development Server**
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+   ```bash
+   npm run dev
+   ```
+
+   This will start a local development server. Open your browser and go to `http://localhost:5000` to view the application.
+
+4. **Build the Project**
+
+   To build the project for production, run:
+
+   ```bash
+   npm run build
+   ```
+
+   The built files will be available in the `public` directory.
+
+## Directory Structure
+
+- `src/`
+  - `components/` - Contains reusable Svelte components.
+  - `stores/` - Contains Svelte stores for state management.
+  - `routes/` - Contains Svelte files for routing (pages).
+  - `app.css` - Global styles.
+- `public/` - Contains static assets like images and fonts.
+- `package.json` - Project metadata and dependencies.
+
+## Svelte Stores
+
+### Cart Store
+
+The cart store (`cartStore.ts`) manages the state of the shopping cart across the application. It is used to add, remove, and update items in the cart.
+
+## Development
+
+- **Code Linting**: Use [ESLint](https://eslint.org/) for JavaScript/TypeScript linting and [Prettier](https://prettier.io/) for code formatting.
+- **Testing**: Add tests using [Jest](https://jestjs.io/) or another testing framework of your choice.
+
+## Contributing
+
+Feel free to contribute to this project by submitting issues or pull requests. Please follow the project's coding standards and ensure that your changes are well-documented.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+
+
