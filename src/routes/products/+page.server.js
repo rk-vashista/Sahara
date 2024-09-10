@@ -1,19 +1,18 @@
-import { createClient } from '@vercel/postgres';
+import { createPool } from '@vercel/postgres';
 import { POSTGRES_URL } from '$env/static/private';
 
-const client = createClient({
+const pool = createPool({
   connectionString: POSTGRES_URL,
 });
 
 export async function load() {
-  await client.connect();
-
+  const client = await pool.connect();
   try {
     const res = await client.query('SELECT id, name, description, price FROM products');
     return {
-      products: res.rows,
+      products: res.rows
     };
   } finally {
-    await client.end();
+    client.release();
   }
 }
