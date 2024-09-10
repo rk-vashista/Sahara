@@ -1,11 +1,8 @@
 <script lang="ts">
-  import { addToCart } from '$lib/cartStore'; // Ensure addToCart is correctly exported from cartStore.js
-  
-  let products = [
-    { id: 1, name: 'Product 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', price: 19.99 },
-    { id: 2, name: 'Product 2', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', price: 29.99 },
-    { id: 3, name: 'Product 3', description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.', price: 39.99 },
-  ];
+  import { addToCart } from '$lib/cartStore';
+  export let data: { products: { id: number; name: string; description: string; price: number; }[] };
+
+  let products = data.products;
 </script>
 
 <section class="py-16 bg-gray-50">
@@ -19,7 +16,7 @@
             <h3 class="text-2xl font-semibold text-gray-800 mb-3">{product.name}</h3>
             <p class="text-gray-600 mb-6">{product.description}</p>
             <div class="flex justify-between items-center">
-              <span class="text-2xl font-bold text-blue-700">${product.price.toFixed(2)}</span>
+              <span class="text-2xl font-bold text-blue-700">${product.price}</span>
               <button
                 on:click={(event) => { event.preventDefault(); addToCart(product); }}
                 class="px-5 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 transition duration-200 ease-in-out"
