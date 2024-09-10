@@ -1,7 +1,6 @@
 <script lang="ts">
   import cartStore from '$lib/cartStore.js'; // Adjust the path as necessary
   import { onDestroy } from 'svelte';
-  import { get } from 'svelte/store';
 
   // Define the type for CartItem
   type CartItem = {
@@ -17,9 +16,20 @@
   // Calculate the total price
   $: total = cartItems.reduce((sum: number, item: CartItem) => sum + item.price * item.quantity, 0);
 
-  // Function to remove an item from the cart
+  // Function to remove an item from the cart or reduce its quantity
   function removeItem(id: number) {
-    cartStore.update((items: CartItem[]) => items.filter(item => item.id !== id));
+    cartStore.update((items: CartItem[]) => {
+      return items.map(item => {
+        if (item.id === id) {
+          if (item.quantity > 1) {
+            return { ...item, quantity: item.quantity - 1 };
+          } else {
+            return null;
+          }
+        }
+        return item;
+      }).filter(item => item !== null) as CartItem[];
+    });
   }
 
   // Subscribe to cart store updates
