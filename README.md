@@ -49,8 +49,6 @@ Make sure you have [Node.js](https://nodejs.org/) installed on your machine.
    The built files will be available in the `public` directory.
 
 
-## Svelte Stores
-
 ### Cart Store
 
 The cart store (`cartStore.ts`) manages the state of the shopping cart across the application. It is used to add, remove, and update items in the cart.
