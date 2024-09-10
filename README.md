@@ -1,4 +1,3 @@
-
 # Svelte E-Commerce Application
 
 A simple e-commerce application built with Svelte. This project includes features like product listing, cart management, and checkout. The application uses Svelte stores to manage the cart state and ensures that changes are reflected across different components.
@@ -49,15 +48,6 @@ Make sure you have [Node.js](https://nodejs.org/) installed on your machine.
 
    The built files will be available in the `public` directory.
 
-## Directory Structure
-
-- `src/`
-  - `components/` - Contains reusable Svelte components.
-  - `stores/` - Contains Svelte stores for state management.
-  - `routes/` - Contains Svelte files for routing (pages).
-  - `app.css` - Global styles.
-- `public/` - Contains static assets like images and fonts.
-- `package.json` - Project metadata and dependencies.
 
 ## Svelte Stores
 
@@ -77,6 +67,3 @@ Feel free to contribute to this project by submitting issues or pull requests. P
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-
-
-
