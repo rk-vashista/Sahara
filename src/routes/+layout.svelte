@@ -2,7 +2,16 @@
   import { page } from '$app/stores';
   import { ShoppingCart } from 'lucide-svelte';
   import cartStore, { cartItemCount } from '$lib/cartStore';
+  import { user, logOut } from '$lib/firebase';
   import "../app.css";
+
+  async function handleLogout() {
+    try {
+      await logOut();
+    } catch (error) {
+      console.error('Error logging out:', error);
+    }
+  }
 </script>
 
 <div class="flex flex-col min-h-screen bg-gray-50">
@@ -18,11 +27,12 @@
           </span>
         {/if}
       </a>
-      {#if !$page.data.user}
+      {#if !$user}
         <a href="/login" class="px-4 py-2 text-sm font-semibold text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-blue-700 transition duration-150 ease-in-out">Login</a>
         <a href="/signup" class="px-4 py-2 text-sm font-semibold text-white bg-blue-700 rounded-lg hover:bg-blue-800 transition duration-150 ease-in-out">Sign Up</a>
       {:else}
-        <button class="px-4 py-2 text-sm font-semibold text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-blue-700 transition duration-150 ease-in-out">Logout</button>
+        <span class="text-sm font-medium text-gray-700">Welcome, {$user.email}</span>
+        <button on:click={handleLogout} class="px-4 py-2 text-sm font-semibold text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-blue-700 transition duration-150 ease-in-out">Logout</button>
       {/if}
     </nav>
   </header>

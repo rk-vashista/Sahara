@@ -24,6 +24,7 @@
 	"type": "module",
 	"dependencies": {
 		"@vercel/postgres": "^0.10.0",
+		"firebase": "^10.13.1",
 		"lucide-svelte": "^0.439.0"
 	}
 }
