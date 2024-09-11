@@ -2,18 +2,20 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'firebase/auth';
 import { writable } from 'svelte/store';
 
+// Firebase configuration using environment variables
 const firebaseConfig = {
-  apiKey: "AIzaSyBTcIs9-OyeAZBlOdfBr-mEcuw1x4aiqeY",
-  authDomain: "sahara-f482f.firebaseapp.com",
-  projectId: "sahara-f482f",
-  storageBucket: "sahara-f482f.appspot.com",
-  messagingSenderId: "825572256933",
-  appId: "1:825572256933:web:5cca615f98498aa337f14c"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
+// Store for tracking the current user
 export const user = writable(null);
 
 onAuthStateChanged(auth, (currentUser) => {
