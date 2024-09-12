@@ -2,7 +2,7 @@
 
 # 🏜️ **Sahara** — Online eCommerce Website
 
-![Sahara Banner](https://example.com/sahara-banner.jpg) <!-- Optional: Add a banner image for the project -->
+<!-- ![Sahara Banner](https://example.com/sahara-banner.jpg) Optional: Add a banner image for the project -->
 
 Sahara is a modern, full-featured online eCommerce platform, designed to deliver a smooth and visually appealing shopping experience. Built with **Svelte** and **Tailwind CSS**, it uses **Firebase** for authentication and **PostgreSQL** for robust backend functionality.
 
