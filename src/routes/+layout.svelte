@@ -66,36 +66,38 @@
                     Products
                 </a>
 
-                <!-- Cart Icon -->
-                <div class="relative cursor-pointer" on:click={() => goto("/cart")}>
-                    <ShoppingCart class="inline-block h-6 w-6 text-gray-800 dark:text-gray-200" />
-                    {#if $cartItemCount > 0}
-                        <span
-                            class="absolute -top-2 -right-2 bg-red-600 text-white text-xs rounded-full px-1.5 py-0.5 min-w-[1.5rem] text-center shadow-md"
+                <!-- Cart Icon (Conditionally Rendered) -->
+                {#if $user}
+                    <div class="relative cursor-pointer" on:click={() => goto("/cart")}>
+                        <ShoppingCart class="inline-block h-6 w-6 text-gray-800 dark:text-gray-200" />
+                        {#if $cartItemCount > 0}
+                            <span
+                                class="absolute -top-2 -right-2 bg-red-600 text-white text-xs rounded-full px-1.5 py-0.5 min-w-[1.5rem] text-center shadow-md"
+                            >
+                                {$cartItemCount}
+                            </span>
+                        {/if}
+                    </div>
+                {/if}
+
+                <!-- Account Section -->
+                <div class="flex items-center space-x-2">
+                    {#if $user}
+                        <button
+                            on:click={handleLogout}
+                            class="text-sm text-gray-800 dark:text-gray-200 hover:underline"
                         >
-                            {$cartItemCount}
-                        </span>
+                            Logout
+                        </button>
+                    {:else}
+                        <button
+                            class="text-sm text-gray-800 dark:text-gray-200 hover:underline"
+                            on:click={() => goto("/login")}
+                        >
+                            Login
+                        </button>
                     {/if}
                 </div>
-
-               <!-- Account Section -->
-<div class="flex items-center space-x-2">
-    {#if $user}
-        <button
-            on:click={handleLogout}
-            class="text-sm text-gray-800 dark:text-gray-200 hover:underline"
-        >
-            Logout
-        </button>
-    {:else}
-        <button
-            class="text-sm text-gray-800 dark:text-gray-200 hover:underline"
-            on:click={() => goto("/login")}
-        >
-            Login
-        </button>
-    {/if}
-</div>
 
                 <!-- Dark/Light Mode Switch -->
                 <button
