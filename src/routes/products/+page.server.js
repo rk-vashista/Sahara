@@ -10,7 +10,7 @@ export async function load() {
   const client = await pool.connect();
   
   try {
-    const res = await client.query('SELECT id, name, description, price FROM products')
+    const res = await client.query('SELECT id, name, description, price, image_url FROM products')
 
     return {
       products: res.rows  // No need for 'props' key in SvelteKit

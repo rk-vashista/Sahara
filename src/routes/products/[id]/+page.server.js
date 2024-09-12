@@ -10,7 +10,7 @@ export async function load({ params }) {
     const client = await pool.connect();
     
     try {
-        const res = await client.query('SELECT id, name, description, price FROM products WHERE id = $1', [params.id]);
+        const res = await client.query('SELECT id, name, description, price, image_url FROM products WHERE id = $1', [params.id]);
         
         // If no product is found, return an error
         if (res.rows.length === 0) {
