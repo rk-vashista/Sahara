@@ -51,12 +51,12 @@
 >
     <header class="bg-white dark:bg-gray-900 shadow-lg transition-colors duration-300 ease-in-out">
         <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <!-- Left Side: Website Name -->
-            <div
-                class="text-xl font-bold text-gray-800 dark:text-gray-200 cursor-pointer"
-                on:click={() => goto("/")}
-            >
-                Sahara
+            <!-- Left Side: Logo and Website Name -->
+            <div class="flex items-center space-x-2 cursor-pointer" on:click={() => goto("/")}>
+                <img src="SAHRA_LOGO.png" alt="Logo" class="h-8 w-8" />
+                <div class="text-xl font-bold text-gray-800 dark:text-gray-200">
+                    Sahara
+                </div>
             </div>
 
             <!-- Right Side: Icons and Links -->
