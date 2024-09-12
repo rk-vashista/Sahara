@@ -46,13 +46,13 @@ Follow these instructions to get the Sahara eCommerce platform running on your l
 First, clone the repository:
 
 ```bash
-git clone https://github.com/your-username/sahara-ecommerce.git
+git clone https://github.com/rk-vashista/Sahara.git
 ```
 
 Navigate to the project folder:
 
 ```bash
-cd sahara-ecommerce
+cd sahara 
 ```
 
 Install the necessary dependencies:
